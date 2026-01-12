@@ -22,7 +22,8 @@ boyutlar <- data.frame(
   lengths_A = c(190, 181, 177, 170, 180),
   widths_A  = c(120, 115, 120, 130, 140)
 )
-boyutlar[, lenghts_A]
+
+boyutlar[, "lenghts_A"]
 
 ### if() Kullanimi
 
@@ -69,3 +70,4 @@ sinif_2 <- ceiling(rnorm(24, mean = 50, sd = 5))
 
 # cor() fonksiyonu ile korelasyonun hesaplanmasi
 cor(sinif_1, sinif_2)
+
