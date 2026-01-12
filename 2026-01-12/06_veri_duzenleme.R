@@ -1,13 +1,17 @@
-# 6 - VERİ DÜZENLEME
+# 6 - VERI DUZENLEME
 
 library(dplyr)
 library(readr)
-TR_stu <- read_csv("https://raw.githubusercontent.com/gungorMetehan/TREduData/main/TREduData_student.csv")
+
+TR_stu <- read_csv(
+  "https://raw.githubusercontent.com/gungorMetehan/TREduData/main/TREduData_student.csv"
+)
 
 glimpse(TR_stu)
 
-TR_stu <- TR_stu |> 
+TR_stu <- TR_stu |>
   mutate_if(is.character, as.factor)
+
 TR_stu <- TR_stu |>
   mutate_at(c("gadm_L3number", "metropolitan"), as.factor)
 
@@ -40,15 +44,24 @@ TR_stu |>
 
 ## mutate()
 TR_stu3 <- TR_stu |>
-  mutate(toplam_devlet_lise = student_s_high_m_21_22 + student_s_high_f_21_22)
+  mutate(
+    toplam_devlet_lise =
+      student_s_high_m_21_22 + student_s_high_f_21_22
+  )
 
 TR_stu |>
-  mutate(toplam_devlet_lise = student_s_high_m_21_22 + student_s_high_f_21_22,
-         .before = province_upper)
+  mutate(
+    toplam_devlet_lise =
+      student_s_high_m_21_22 + student_s_high_f_21_22,
+    .before = province_upper
+  )
 
 TR_stu |>
-  mutate(toplam_devlet_lise = student_s_high_m_21_22 + student_s_high_f_21_22,
-         .after = NUTS_level1_name)
+  mutate(
+    toplam_devlet_lise =
+      student_s_high_m_21_22 + student_s_high_f_21_22,
+    .after = NUTS_level1_name
+  )
 
 ## select()
 TR_stu |>
@@ -77,7 +90,11 @@ TR_stu |>
   rename(L3 = gadm_L3number)
 
 TR_stu |>
-  rename(L3 = gadm_L3number, plaka = plate_number, sehir = province_upper)
+  rename(
+    L3 = gadm_L3number,
+    plaka = plate_number,
+    sehir = province_upper
+  )
 
 ## group_by()
 TR_stu |>
@@ -86,26 +103,33 @@ TR_stu |>
 ## summarize()
 TR_stu |>
   group_by(NUTS_level1_name) |>
-  summarize(ort_dev_anaokulu = mean(student_s_pre_f_20_21))
+  summarize(
+    ort_dev_anaokulu = mean(student_s_pre_f_20_21)
+  )
 
-## slice_*() Fonksiyonları
-# veri setinin ilk 5 satırını seçmek için
+## slice_*() Fonksiyonlari
+
+# veri setinin ilk 5 satirini secmek icin
 TR_stu |>
   slice_head(n = 5)
-# veri setinin son 3 satırını seçmek için
+
+# veri setinin son 3 satirini secmek icin
 TR_stu |>
   slice_tail(n = 3)
-# veri setindeki bir değişkenin en küçük 3 değerini içeren satırları seçmek için
+
+# veri setindeki bir degiskenin en kucuk 3 degerini iceren satirlari secmek icin
 TR_stu |>
   slice_min(student_pre_total_19_20, n = 3)
-# veri setindeki bir değişkenin en büyük 3 değerini içeren satırları seçmek için
+
+# veri setindeki bir degiskenin en buyuk 3 degerini iceren satirlari secmek icin
 TR_stu |>
   slice_max(student_pre_total_19_20, n = 3)
-# veri setinden rastgele 4 satır seçmek için (her çalıştırmada farklı satırların seçilmesi mümkündür)
+
+# veri setinden rastgele 4 satir secmek icin
 TR_stu |>
   slice_sample(n = 4)
 
-## Pipe (|>) Bağlantı Operatörü
+## Pipe (|>) Baglanti Operatoru
 TR_stu |>
   filter(metropolitan == 1) |>
   select(where(is.double))
@@ -116,7 +140,8 @@ TR_stu |>
   rename(plaka = plate_number, sehir = province_upper) |> 
   arrange(plaka)
 
-## Veri Setlerini Birleştirme (Join Fonksiyonları)
+## Veri Setlerini Birlestirme (Join Fonksiyonlari)
+
 ogr_ID <- 1:6
 sinif <- rep(7:8, 3)
 matematik_O1 <- c(40, 40, 50, 80, 60, 40)
@@ -135,55 +160,57 @@ veri3 <- data.frame(ogr_ID, sozel)
 veri3
 
 ### inner_join()
-# iki veri setinin birleştirilmesi
+
 yeni_veri1 <- veri1 |>  
   inner_join(veri2, by = c("ogr_ID" = "ID"))
 yeni_veri1
 
-# üç veri setinin birleştirilmesi
 yeni_veri2 <- veri1 |> 
   inner_join(veri2, by = c("ogr_ID" = "ID")) |>
   inner_join(veri3)
+yeni_veri2
 
 ### left_join()
-# iki veri setinin birleştirilmesi
+
 yeni_veri3 <- veri1 |>  
   left_join(veri2, by = c("ogr_ID" = "ID"))
 yeni_veri3
 
-# üç veri setinin birleştirilmesi
 yeni_veri4 <- veri1 |>  
   left_join(veri2, by = c("ogr_ID" = "ID")) |>
   left_join(veri3)
+yeni_veri4
 
 ### right_join()
-# iki veri setinin birleştirilmesi
+
 yeni_veri5 <- veri1 |>  
   right_join(veri2, by = c("ogr_ID" = "ID"))
 yeni_veri5
 
-# üç veri setinin birleştirilmesi
 yeni_veri6 <- veri1 |>  
-  right_join(veri2, y = veri2, by = c("ogr_ID" = "ID")) |>  
+  right_join(veri2, by = c("ogr_ID" = "ID")) |>  
   right_join(veri3)
+yeni_veri6
 
 ### full_join()
-# iki veri setinin birleştirilmesi
+
 yeni_veri7 <- veri1 |>  
   full_join(veri2, by = c("ogr_ID" = "ID"))
 yeni_veri7
 
-# üç veri setinin birleştirilmesi
 yeni_veri8 <- veri1 |>  
-  full_join(veri2, y = veri2, by = c("ogr_ID" = "ID")) |>  
+  full_join(veri2, by = c("ogr_ID" = "ID")) |>  
   full_join(veri3)
+yeni_veri8
 
 ### semi_join()
+
 yeni_veri9 <- veri2 |>  
   semi_join(veri3, by = c("ID" = "ogr_ID"))
 yeni_veri9
 
 ### anti_join()
+
 yeni_veri10 <- veri2 |>  
   anti_join(veri3, by = c("ID" = "ogr_ID"))
 yeni_veri10
