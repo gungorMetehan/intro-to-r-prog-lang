@@ -12,14 +12,12 @@ typeof(meyveler)
 assign("yeni_sayilar", c(1, 2, 3, 4, 5))
 yeni_sayilar
 
-meyveler <- c("elma", "cilek", "erik", "armut", "karpuz", "kiraz")
-
+meyveler
 # vektorun icinden yalnizca bir eleman secme
 meyveler[4]
 
 # vektorun icinden birden fazla eleman secme
 meyveler[c(3, 4)]
-
 meyveler[c(2:5)]
 
 meyveler <- c("elma", "cilek", "erik", "armut", "karpuz", "kiraz")
@@ -36,6 +34,7 @@ meyveler[-c(1:4)]
 meyveler <- c("elma", "cilek", "erik", "armut", "karpuz", "kiraz")
 meyveler[7] <- "kivi"
 meyveler
+meyveler[10] <- "seftali" # sonuc ne olur?
 
 meyveler <- c("elma", "cilek", "erik", "armut", "karpuz", "kiraz")
 harf <- LETTERS[1:6]
@@ -43,7 +42,6 @@ names(meyveler) <- harf
 meyveler
 
 meyveler[3] ; meyveler["C"]
-
 
 notlar <- c(70, 75, 65, 60, 35, 80, 80, 85, 90, 95, 80, 75, 60, 55)
 ogrenciler <- c("Ogr01", "Ogr02", "Ogr03", "Ogr04", "Ogr05", "Ogr06", "Ogr07", "Ogr08", 
@@ -101,6 +99,10 @@ seq(from = 10, length = 16)
 seq(from = 5, to = 15, by = 2.5)
 # length.out argumani ile belirli bir aralikta kac adet deger bulunacaginin ayarlanmasi
 seq(from = 3, to = 7, length.out = 15)
+
+# nedir bu argumanlar seq() fonksiyonunda kullanilan?
+?seq()
+
 # belirli sayidaki elemandan olusan bir vektorun rep() fonksiyonu ile tekrar ettirilmesi
 rep(c(0:9), 2)
 rep(c(0:9), times = 2)
@@ -130,7 +132,6 @@ vektor3 * vektor4
 vektor5 <- c(1, 2, 3)
 vektor6 <- c(4, 5)
 vektor5 * vektor6
-
 
 
 ## Faktorlerde Islemler
@@ -197,7 +198,7 @@ matris8
 matris9 <- cbind(matris8, 100:104)
 matris9
 
-dim(matris7)
+dim(matris7) # boyutlar
 
 # sutun ve satirlara isim verme
 colnames(matris7) <- c("B1", "B2", "B3", "B4", "B5", "B6")
@@ -215,13 +216,16 @@ matris8
 
 # ELEMAN SECME: matris7'yi ornek olarak ele alalim 
 matris7
+
 # matris7'den farkli sekillerde eleman secme
 matris7[1, 3]
 matris7[2, ]
 matris7[, 3]
 matris7[, "B3"]
+
 # iki vektorun ayni olup olmadigini test etme
 identical(matris7[, 3], matris7[, "B3"])
+
 # matris7'den farkli sekillerde eleman secme
 matris7[1:4, 2]
 matris7[c(1, 5), 2]
@@ -233,6 +237,7 @@ matris7[matris7[, 1] > 2, 2]
 
 # ARITMETIK ISLEMLER: matris7'yi ornek olarak ele alalim 
 matris7
+
 # matrise 5 eklenmesi
 matris7 + 5
 # 1'den bir matrisin cikarilmasi
@@ -262,12 +267,11 @@ m1 <- matrix(1:15, 3, 5)
 # sutun toplamlari
 colSums(m1)
 # satir toplamlari
-rowSums
+rowSums(m1)
 # sutun ortalamalari
 colMeans(m1)
 # satir ortalamalari
 rowMeans(m1)
-
 
 
 ## Dizilerde Islemler
@@ -303,6 +307,7 @@ dizi2[, , 2] <- matrix(101:112, 3, 4)
 # dizi2'nin yeni halinin incelenmesi
 dizi2
 
+
 ## Listelerde Islemler
 # karakterlerden ve sayilardan olusan vektorlerin olusturulmasi
 personel <- c("Per01", "Per02", "Per03", "Per04", "Per05", "Per06", "Per07", "Per08", 
@@ -327,9 +332,11 @@ harfler <- letters[1:20]
 liste3 <- list(liste1, liste2, harfler)
 liste3
 
+# vektor nesnelerine isimler vererek liste_yeni isimli listenin olusturulmasi
 liste_yeni <- list(Ad = personel, Motivasyon = motivasyon_puani, Ucret = maas)
 liste_yeni
 
+# liste icindeki eleman islemleri
 liste1[[2]]
 liste1[[2]][1]
 liste_yeni$Ad
@@ -345,6 +352,7 @@ cinsiyet <- c("K", "E", "E", "E", "K", "K", "E", "E", "E", "K")
 listeA <- list(personel, cinsiyet)
 listeA
 
+# listeA'daki cinsiyetler nesnesinin degistirilmesi
 cinsiyet2 <- c("E", "E", "E", "E", "K", "K", "E", "E", "E", "K")
 listeA[[2]] <- cinsiyet2
 listeA
@@ -354,10 +362,12 @@ listeA
 matrisK <- matrix(1:12, 2, 6)
 class(matrisK)
 
+# matrisK isimli matris ile c() fonksiyonu araciligi ile olusturulan vektor birlestirilirse ne olur?
 yenidata <- rbind(matrisK, c("elma", "cilek", "erik", "armut", "karpuz", "kiraz"))
 yenidata
 str(yenidata)
 
+# 3 farkli sutunu olan data frame olusturulmasi
 id <- 1:14
 notlar <- c(70, 75, 65, 60, 35, 80, 80, 85, 90, 95, 80, 75, 60, 55)
 ogrenciler <- c("Ogr01", "Ogr02", "Ogr03", "Ogr04", "Ogr05", "Ogr06", "Ogr07", "Ogr08", 
@@ -367,27 +377,34 @@ data1 <- data.frame(id, notlar, ogrenciler)
 data1
 class(data1)
 
+# data frame icinden eleman secme
 data1[1, 3]
 data1[2, ]
 data1[, 3]
 
+# Ekstra: data frame'lerde sutun ve satirin secilmesi sonucunda ortaya cikan vektorler farkli davranislar gosterebilir.
 is.data.frame(data1[2, ])
 is.data.frame(data1[, 3])
 data1[, 3, drop = FALSE]
 is.data.frame(data1[, 3, drop = FALSE])
 
+# kosula bagli eleman secme
 data1[data1[2] > 75, ]
 data1[data1[2] > 75 & data1[3] == "Ogr06", ]
 subset(data1, ogrenciler == "Ogr06")
 subset(data1, notlar > 75)
 
+# $ isareti ile degisken (sutun) ekleme
 data1$gpa <- c(3.0, 3.3, 3.2, 4.0, 2.8, 3.3, 3.5, 3.4, 3.5, 3.1, 3.2, 2.9, 3.8, 3.3)
 
+# [[]] kullanarak degisken (sutun) ekleme
 data1[["gpa2"]] <- c(3.0, 3.3, 3.2, 4.0, 2.8, 3.3, 3.5, 3.4, 3.5, 3.1, 3.2, 2.9, 3.8, 3.3)
 
 yilsonu <- c(3.0, 3.3, 3.2, 4.0, 2.8, 3.3, 3.5, 3.4, 3.5, 3.1, 3.2, 2.9, 3.8, 3.3)
+
 data1 <- cbind(data1, gpa3 = yilsonu)
 
+# data frame'lerde isimlendirme
 names(data1) <- c("No", "Sinav Notu", "Ad Soyad", "GPA1", "GPA2", "GPA3")
 data1
 
