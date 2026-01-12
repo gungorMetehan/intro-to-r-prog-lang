@@ -1,174 +1,167 @@
-# 3 - VERİ YAPILARI
-## Vektörler
+# 3 - VERI YAPILARI
+## Vektorler
 
-# Vektör, aynı tür verilerin bir araya gelmesiyle oluşan tek boyutlu bir veri yapısıdır. 
-# Vektörler sayısal, karakter ya da mantıksal verilerden oluşabilir. 
-# R’da vektörleri oluşturmak için c() fonksiyonu kullanılabilir.
+# Vektor, ayni tur verilerin bir araya gelmesiyle olusan tek boyutlu bir veri yapisidir. 
+# Vektorler sayisal, karakter ya da mantiksal verilerden olusabilir. 
+# R'da vektorleri olusturmak icin c() fonksiyonu kullanilabilir.
 
-# üç farklı veri türünde vektör nesnelerin oluşturulması
+# uc farkli veri turunde vektor nesnelerin olusturulmasi
 sayisal <- c(5, 10, 15)
 karakter <- c("x", "y", "z")
 mantiksal <- c(TRUE, FALSE, TRUE)
 
-# farklı tür veriler birleştirilirse ne olur
+# farkli tur veriler birlestirilirse ne olur? (Numerik degerler ve karakter)
 ornek1 <- c(30, "k", 5, "c")
 ornek1
-class(ornek1)
+class(ornek1) # Olusan nesnenin turune bakalim.
 
-# farklı tür veriler birleştirilirse ne olur
+# farkli tur veriler birlestirilirse ne olur? (Numerik ve mantiksal degerler)
 ornek2 <- c(2, 5, TRUE, FALSE)
-class(ornek2)
+class(ornek2) # Olusan nesnenin turune bakalim.
 
 ornek3 <- c(2, 5, "Ankara")
-class(ornek3)
+class(ornek3) # Olusan nesnenin turune bakalim.
 
-# iki ayrı vektörün oluşturulması
-sinif <- c("Yagiz", "Deniz", "Doruk", "Cagan", "Utku", "Sarp")
+# vektorun uzunlugunun bulunmasi
 notlar <- c(90, 95, 100, 80, 90, 95)
+length(notlar)
 
-# vektörün uzunluğunu bulmak için
-length(sinif)
-
-# vektörün türünü bulmak için
-typeof(sinif)
+# vektorun turunu bulmak icin
+typeof(notlar)
 
 
+## Faktorler
 
-## Faktörler
+# Faktorler kategorik/kesikli/sureksiz veriler icin kullanilir. 
+# Faktor nesnelerinin aldigi degerlere duzey (level) denir. 
+# Karakter veri turu cogunlukla grafiklerin adlandirilmasi, satir veya sutun adlarinin verilmesi gibi 
+# amaclar ile kullanilirken, faktorler veri setindeki sureksiz degiskenleri (variables) gosterir. 
+# Faktorler analizlerde gruplari gosterir. Faktorler karakter veri turunde ya da sayisal veri turunde olabilir.
 
-# Faktörler kategorik/kesikli/süreksiz veriler için kullanılır. 
-# Faktör nesnelerinin aldığı değerlere düzey (level) denir. 
-# Karakter veri türü çoğunlukla grafiklerin adlandırılması, satır veya sütun adlarının verilmesi gibi 
-# amaçlar ile kullanılırken, faktörler veri setindeki süreksiz değişkenleri (variables) gösterir. 
-# Faktörler analizlerde grupları gösterir. Faktörler karakter veri türünde ya da sayısal veri türünde olabilir.
-
-# bir karakter vektörü oluşturma ve bunu faktöre dönüştürme
+# bir karakter vektoru olusturma ve bunu faktore donusturme
 cinsiyetler <- c("erkek", "erkek", "erkek", "kadin", "erkek", "kadin", "kadin")
 cinsiyetler <- factor(cinsiyetler)
 cinsiyetler
 
-# bir karakter vektörü oluşturma ve bunu düzeyleri olan bir faktöre dönüştürme
+# bir karakter vektoru olusturma ve bunu duzeyleri olan bir faktore donusturme
 beden <- c("M", "M", "S", "S", "L")
 beden <- ordered(beden, levels = c("S", "M", "L"))
 beden
 
-
-
 ## Matrisler
 
-# Matrisler, vektörler gibi tek bir tür veri içerir. 
-# Buna karşın, vektörler tek boyutlu iken matrisler iki boyutlu veri yapılarıdır. 
-# Matris oluşturmanın birden fazla yolu vardır. 
-# Eşit uzunluktaki vektörler birleştirilerek matris oluşturulabilir. 
-# Sütunların birleştirilmesi için cbind(), satırların birleştirilmesi için rbind() fonksiyonları kullanılır.
+# Matrisler, vektorler gibi tek bir tur veri icerir. 
+# Buna karsin, vektorler tek boyutlu iken matrisler iki boyutlu veri yapilaridir. 
+# Matris olusturmanin birden fazla yolu vardir. 
+# Esit uzunluktaki vektorler birlestirilerek matris olusturulabilir. 
+# Sutunlarin birlestirilmesi icin cbind(), satirlarin birlestirilmesi icin rbind() fonksiyonlari kullanilir.
 
-# öğrencilerin boyları için bir vektör, kiloları için başka bir vektör oluşturma
+# ogrencilerin boylari icin bir vektor, kilolari icin baska bir vektor olusturma
 ogrenci_boy <- c(162, 168, 175, 182, 140)
 ogrenci_kilo <- c(48, 50, 52, 55, 48)
 
-mm_1 <- cbind(ogrenci_boy, ogrenci_kilo)
+mm_1 <- cbind(ogrenci_boy, ogrenci_kilo) # sutun olarak birlestir
 mm_1
 
-mm_2 <- rbind(ogrenci_boy, ogrenci_kilo)
+mm_2 <- rbind(ogrenci_boy, ogrenci_kilo) # satir olarak birlestir
 mm_2
 
-class(mm_1) ; class(mm_2)
+class(mm_1) ; class(mm_2) # iki farkli matrisin turleri nedir?
 
-# byrow argümanına dikkat ederek matris oluşturulabilir.
-
+# byrow argumanina dikkat ederek matris olusturulabilir. Asagidaki kodlari calistirarak olusan dort farkli matrisi inceleyin.
 matrix(1:20, nrow = 4, ncol = 5, byrow = F)
-
 matrix(1:20, nrow = 4, ncol = 5, byrow = T)
 matrix(1:20, nrow = 4)
 matrix(1:20, ncol = 5)
 
 
-
 ## Diziler (Arrays)
 
-# Diziler, vektörlerin ve matrislerin genelleştirilmiş halidir. 
-# Vektörler tek, matrisler ise iki boyutlu dizilerdir. Diziler, tek tür veri içerebilir. 
-# Dizi oluşturmak için array() fonksiyonundan yararlanılır.
+# Diziler, vektorlerin ve matrislerin genellestirilmis halidir. 
+# Vektorler tek, matrisler ise iki boyutlu dizilerdir. Diziler, tek tur veri icerebilir. 
+# Dizi olusturmak icin array() fonksiyonundan yararlanilir.
 
-# boş bir dizinin oluşturulması
+# bos bir dizinin olusturulmasi
 array(data = NA, dim = length(data), dimnames = NULL)
 
-array(1:24, dim = c(2, 3, 4))
+array(1:24, dim = c(2, 3, 4)) # 24 eleman matrislere neye gore dagitilmis? dim argumanina girilen degerleri inceleyiniz.
 
+# iki ayri vektor kullanilarak bir dizi olusturulabilir
 vektor_a <- c(5, 9, 3)
 vektor_b <- c(10, 11, 12, 13, 14, 15)
 sonuc <- array(c(vektor_a, vektor_b), dim = c(3, 3, 2))
 sonuc
 
+
 ## Listeler (Lists)
 
-# Listeler vektörlere benzer ancak vektörlerden farklı olarak herhangi bir veri türünde veri içerebilir. 
-# Esnek bir veri yapısıdır. Listelerde hem farklı türden, hem de farklı uzunlukta veriler yer alabilir. 
-# Listeler list() fonksiyonu ile oluşturulabilir.
+# Listeler vektorlere benzer ancak vektorlerden farkli olarak herhangi bir veri turunde veri icerebilir. 
+# Esnek bir veri yapisidir. Listelerde hem farkli turden, hem de farkli uzunlukta veriler yer alabilir. 
+# Listeler list() fonksiyonu ile olusturulabilir.
 
-# bir listeye koymak için üç ayrı vektör oluşturma
-ad <- c("Ad1", "Ad2", "Ad3", "Ad4", "Ad5", "Ad6")
-boy <- c(180, 181, 188, 170, 172, 175, 181)
-kilo <- c(80, 85, 55)
+# bir listeye eklemek icin uc ayri vektor olusturma
+ad <- c("Ad1", "Ad2", "Ad3", "Ad4", "Ad5", "Ad6") # karakter vektoru
+boy <- c(180, 181, 188, 170, 172, 175, 181) # numerik vektor
+kilo <- c(80, 85, 55) # numerik vektor
 
-# üç vektörden oluşan bir liste oluşturma
+# uc vektorden olusan bir liste olusturma
 liste <- list(ad, boy, kilo)
 liste
 
-# liste'nin yapısının incelenmesi
+# liste'nin yapisinin incelenmesi
 str(liste)
 
-# liste isimli listeye iki vektör daha ekleme
+# liste isimli listeye iki vektor daha ekleme
 liste2 <- list(liste, ilk3sayi = c(1, 2, 3), mantik = c(T, F, F, F, T))
 liste2
 
-# liste2'nin yapısının incelenmesi
+# liste2'nin yapisinin incelenmesi
 str(liste2)
-
 
 
 ## Data Frame'ler
 
-# R’da data frame’ler data.frame() fonksiyonu ile oluşturulabilir. 
-# R’a farklı programlardan aktarılan veriler genelde data frame olarak kaydedilir. 
-# Bu data frame’ler matrislere çok benzer, ancak data frame’lerde farklı sütunlarda yer alan veriler 
-# farklı türlerde olabilir. Matrislerde tüm veriler aynı tür olmak zorundadır. 
+# R'da data frame'ler data.frame() fonksiyonu ile olusturulabilir. 
+# R'a farkli programlardan aktarilan veriler genelde data frame olarak kaydedilir. 
+# Bu data frame'ler matrislere cok benzer, ancak data frame'lerde farkli sutunlarda yer alan veriler farkli turlerde olabilir. Matrislerde tum veriler ayni tur olmak zorundadir. 
 
-# süper lig 2022-2023 sezonunun sonuç tablosundaki ilk 6 takımdan oluşan data frame'i oluşturalım
+# super lig 2022-2023 sezonunun sonuc tablosundaki ilk 6 takimdan olusan data frame'i olusturalim
 takim <- c("galatasaray", "fenerbahce", "besiktas", "adana demirspor", "basaksehir", "trabzonspor")
 gol <- c(83, 87, 78, 76, 54, 64)
 puan <- c(88, 80, 78, 69, 62, 57)
 
-dataFrame1 <- data.frame(takim, gol, puan)
-dataFrame1
+dataFrame1 <- data.frame(takim, gol, puan) # bir karakter, iki ayrı numerik vektor bu fonksiyon ile birlestirilebilir
+dataFrame1 # bu nesneyi olusturan vektorlerin uzunluklarinin esit olduguna dikkat ediniz.
 
+# farkli uzunluklardaki vektorler birlestirilerek de data frame elde edilebilir mi?
 x <- 100:103
 y <- 10
 M <- c(10, 11)
 N <- c(4, 5, 6)
 
-# x dört; y ise bir elemanlıdır
+# x dort; y ise bir elemanlidir
 data.frame(x, y)
 
-# x dört; N ise üç elemanlıdır
+# x dort; N ise uc elemanlidir
 data.frame(x, N)
 
-# M iki; N ise üç elemanlıdır
+# M iki; N ise uc elemanlidir
 data.frame(M, N)
 
-View(dataFrame4)
+# M iki, x ise dort elemanlidir
+data.frame(M, x)
 
 
+## R'daki Hazir Veri Setleri
 
-## R'daki Hazır Veri Setleri
+iris # cicek veri seti
+mtcars # araba veri seti
 
-iris
-mtcars
-
-library(palmerpenguins)
+library(palmerpenguins) # palmerpenguins bir paket ismidir, ancak biz bu paket icindeki penguins isimli veri setini almak istiyoruz sadece.
 head(penguins, 10)
 
-# veri setinin çağırılması
+# Titanic veri seti unlu bir veri setidir, ancak klasik bir data frame yapisinda degildir. Genelde analiz etmek icin birkac duzenleme yapmak gerekir.
+# veri setinin cagrilmasi - data() fonksiyonu yardimi ile yapilir.
 data(Titanic)
 
 # veri setinin istenen formata getirilmesi
@@ -176,14 +169,15 @@ library(tibble)
 Titanic <- as_tibble(Titanic)
 head(Titanic, 10)
 
-data(airquality)
+data(airquality) # hava durumu ile ilgili bir baska veri seti
 head(airquality, 10)
+tail(airquality, 5)
 
 
+## Veri Yapilari Arasinda Donusum
+# Veri yapilari eger sartlar uygun ise birbirine donusturulebilir.
 
-## Veri Yapıları Arasında Dönüşüm
-
-### as.list()
+### as.list() - listeye cevir
 sayilar <- c(10, 11, 12, 13, 17, 20)
 sayilar
 as.list(sayilar)
@@ -193,19 +187,18 @@ yeni_sayilar <- data.frame(sayilar, sayilar2)
 yeni_sayilar
 as.list(yeni_sayilar)
 
-### as.data.frame()
+### as.data.frame() - data frame'e cevir
 sayilar <- c(10, 11, 12, 13, 17, 20)
 sayilar
 as.data.frame(sayilar)
 
-### as.matrix()
+### as.matrix() - matrise cevir
 yeni_vektor <- 1:50
 as.matrix(yeni_vektor)
 
 yeni_sayilar
 as.matrix(yeni_sayilar)
 
-### as.vector()
+### as.vector() - vektore cevir
 yeni_sayilar
 as.vector(yeni_sayilar)
-
