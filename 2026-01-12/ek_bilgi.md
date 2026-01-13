@@ -7,7 +7,7 @@
   + Kitap yazılabilir - [Örnek](https://openintro-ims.netlify.app/)
   + Slayt hazırlanabilir - [Örnek](https://slides.yihui.org/xaringan/#1)
   + Paket tanıtımı için site hazırlanabilir - [Örnek](https://pkgdown.r-lib.org/)
-  + Web / blog siteleri hazırlanabilir - [Örnek](https://www.garrickadenbuie.com/)
+  + Web / blog siteleri hazırlanabilir - [Örnek1](https://www.garrickadenbuie.com/) | [Örnek2](https://paulbuerkner.com/)
   + Kaliteli ve yüksek çözünürlüklü grafikler hazırlanabilir - [Örnek](https://r-graph-gallery.com/)
   + Etkileşimli grafikler hazırlanabilir - [Örnek1](https://gallery.shinyapps.io/051-movie-explorer/) | [Örnek2](https://vac-lshtm.shinyapps.io/ncov_tracker/)
   + Etkileşimli uygulamalar / programlar hazırlanabilir - [Örnek1](https://shiny.eptlab.com/tia/) | [Örnek2](https://erguldemir.shinyapps.io/StatisticalTechniqueAdvisor/) | [Örnek3](https://davesteps.shinyapps.io/machLearn/)
