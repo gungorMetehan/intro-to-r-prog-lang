@@ -1,7 +1,7 @@
 # 8 - BASIT VERI GORSELLESTIRME
 
 # x ve y vektorlerini olusturma (200 gozlem)
-x <- rnorm(200)
+x <- rnorm(200) # rnorm() da ilk defa gordugumuz bir fonksiyon. Bu fonksiyon normal dagilimdan rastgele 200 deger cekiyor.
 y <- x + rnorm(200)
 
 # basit bir gorsellestirme
@@ -41,13 +41,13 @@ x <- 1:15
 y <- c(3, 4, 7, 11, 8, 9, 14, 2, 3, 4, 5, 6, 7, 10, 10)
 
 # grafiklerin birlikte gosterilmesi icin (1 satir, 3 sutun)
-par(mfrow = c(1, 3))
+par(mfrow = c(1, 3)) # bu kod calistirilmak zorunda degil. Sadece farkli turdeki grafiklerin type argumani ile nasil olusturuldugunu es zamanli ekranda gormek icin kullaniyoruz.
 
 plot(x, y, type = "l")
 plot(x, y, type = "s")
 plot(x, y, type = "p")
 
-par(mfrow = c(1, 1))
+par(mfrow = c(1, 1)) # ekranda surekli 3 grafik olusturulmamasi icin eski haline bu kod yardimi ile donuyoruz.
 
 par(mfrow = c(1, 3))
 
@@ -55,7 +55,7 @@ plot(x, y, type = "o")
 plot(x, y, type = "b")
 plot(x, y, type = "h")
 
-par(mfrow = c(1, 1))
+par(mfrow = c(1, 1)) # ekranda surekli 3 grafik olusturulmamasi icin eski haline bu kod yardimi ile donuyoruz.
 
 par(mfrow = c(1, 3))
 
@@ -63,7 +63,7 @@ plot(x, y, type = "c")
 plot(x, y, type = "S")
 plot(x, y, type = "n")
 
-par(mfrow = c(1, 1))
+par(mfrow = c(1, 1)) # ekranda surekli 3 grafik olusturulmamasi icin eski haline bu kod yardimi ile donuyoruz.
 
 # Noktalarin Sekli: pch Argumani
 # plot() fonksiyonunun icin pch argumani girilerek noktalarin sekli degistirilebilir.
@@ -107,7 +107,7 @@ par(mfrow = c(1, 3))
 plot(x, y, xaxt = "n")
 plot(x, y, yaxt = "n")
 plot(x, y, xaxt = "n", yaxt = "n")
-par(mfrow = c(1, 1))
+par(mfrow = c(1, 1)) # ekranda surekli 3 grafik olusturulmamasi icin eski haline bu kod yardimi ile donuyoruz.
 
 x <- 1:10
 y <- sample(x = 10:50, size = 10)
@@ -117,7 +117,7 @@ plot(x, y, las = 0)
 plot(x, y, las = 1)
 plot(x, y, las = 2)
 plot(x, y, las = 3)
-par(mfrow = c(1, 1))
+par(mfrow = c(1, 1)) # ekranda surekli 3 grafik olusturulmamasi icin eski haline bu kod yardimi ile donuyoruz.
 
 x <- 1:10
 y <- sample(x = 10:50, size = 10)
@@ -145,7 +145,7 @@ par(mfrow = c(1, 3))
 plot(x, y, font = 2, main = "Kalin")
 plot(x, y, font = 3, main = "Egik")
 plot(x, y, font = 4, main = "Hem Kalin Hem Egik")
-par(mfrow = c(1, 1))
+par(mfrow = c(1, 1)) # ekranda surekli 3 grafik olusturulmamasi icin eski haline bu kod yardimi ile donuyoruz.
 
 x <- 1:10
 y <- sample(x = 10:50, size = 10)
@@ -249,7 +249,7 @@ x <- 1:10
 y <- sample(x = 10:50, size = 10)
 
 plot(x, y)
-text(x, y, pos = 4)
+text(x, y, pos = 4) # pos argumani burada metnin pozisyonunu belirliyor. Diger sayilari girmeyi deneyebilirsiniz. Ornegin pos = 3.
 
 # Lejant
 # legend() fonksiyonu ile grafik alanina lejant eklenebilir.
@@ -282,7 +282,6 @@ plot(x, y, bty = "c", main = "bty = 'c'")
 plot(x, y, bty = "u", main = "bty = 'u'")
 plot(x, y, bty = "]", main = "bty = ']'")
 
-par(mfrow = c(1, 1))
+par(mfrow = c(1, 1)) # ekranda surekli 6 grafik olusturulmamasi icin eski haline bu kod yardimi ile donuyoruz.
 
-# bty = "n" kullanildiginda grafik alanini cevreleyen kutu gosterilmez,
-# sadece x ve y eksenleri kalir.
+# bty = "n" kullanildiginda grafik alanini cevreleyen kutu gosterilmez, sadece x ve y eksenleri kalir.
