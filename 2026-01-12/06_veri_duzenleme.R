@@ -1,13 +1,11 @@
 # 6 - VERI DUZENLEME
 
-library(dplyr)
-library(readr)
+library(dplyr) # eger dplyr isimli paket bu sekilde calismazsa sizin R'da yuklu degil demektir. Oncesinde install.packages("dplyr") calistirilmalidir.
+library(readr) # eger readr isimli paket bu sekilde calismazsa sizin R'da yuklu degil demektir. Oncesinde install.packages("readr") calistirilmalidir.
 
-TR_stu <- read_csv(
-  "https://raw.githubusercontent.com/gungorMetehan/TREduData/main/TREduData_student.csv"
-)
+TR_stu <- read_csv("https://raw.githubusercontent.com/gungorMetehan/TREduData/main/TREduData_student.csv") # calisma yapmak icin bize bir veri seti lazim. Bunu kullanabiliriz.
 
-glimpse(TR_stu)
+glimpse(TR_stu) # kisa bir bakis atalim veri setine.
 
 TR_stu <- TR_stu |>
   mutate_if(is.character, as.factor)
@@ -44,24 +42,16 @@ TR_stu |>
 
 ## mutate()
 TR_stu3 <- TR_stu |>
-  mutate(
-    toplam_devlet_lise =
-      student_s_high_m_21_22 + student_s_high_f_21_22
-  )
+  mutate(toplam_devlet_lise = student_s_high_m_21_22 + student_s_high_f_21_22) # yeni olusan degiskeni veri setine ekledi, ama nereye?
+
+# Onemli Hatirlatma: filter(), arrange() ve distinct() basliklari altinda yapilan islemlerde veri setini degistirmemistik, cunku bir atama yapmamistik.
+# Ancak bakarsaniz TR_stu3 isimli yeni bir nesne var. Bu nesnede farkli bir degisken yer aliyor, biz olusturduk bunu.
 
 TR_stu |>
-  mutate(
-    toplam_devlet_lise =
-      student_s_high_m_21_22 + student_s_high_f_21_22,
-    .before = province_upper
-  )
+  mutate(toplam_devlet_lise = student_s_high_m_21_22 + student_s_high_f_21_22, .before = province_upper)
 
 TR_stu |>
-  mutate(
-    toplam_devlet_lise =
-      student_s_high_m_21_22 + student_s_high_f_21_22,
-    .after = NUTS_level1_name
-  )
+  mutate(toplam_devlet_lise = student_s_high_m_21_22 + student_s_high_f_21_22, .after = NUTS_level1_name)
 
 ## select()
 TR_stu |>
@@ -90,11 +80,7 @@ TR_stu |>
   rename(L3 = gadm_L3number)
 
 TR_stu |>
-  rename(
-    L3 = gadm_L3number,
-    plaka = plate_number,
-    sehir = province_upper
-  )
+  rename(L3 = gadm_L3number, plaka = plate_number, sehir = province_upper)
 
 ## group_by()
 TR_stu |>
@@ -103,9 +89,7 @@ TR_stu |>
 ## summarize()
 TR_stu |>
   group_by(NUTS_level1_name) |>
-  summarize(
-    ort_dev_anaokulu = mean(student_s_pre_f_20_21)
-  )
+  summarize(ort_dev_anaokulu = mean(student_s_pre_f_20_21))
 
 ## slice_*() Fonksiyonlari
 
@@ -142,6 +126,8 @@ TR_stu |>
 
 ## Veri Setlerini Birlestirme (Join Fonksiyonlari)
 
+## orneklendirebilmek icin en az iki veri setine ihtiyacimiz var. bir yerden cekebilirdik, ancak kucuk ve uygun veri setlerini kendimiz de asagidaki gibi olusturabiliriz.
+## 3 veri seti olusturalim, hem iki hem de uc veri setinin nasil birbiri ile birlestirilebildigi gorelim.
 ogr_ID <- 1:6
 sinif <- rep(7:8, 3)
 matematik_O1 <- c(40, 40, 50, 80, 60, 40)
