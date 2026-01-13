@@ -20,6 +20,7 @@ meyveler[4]
 meyveler[c(3, 4)]
 meyveler[c(2:5)]
 
+# vektore eleman ekleme ve vektorden eleman cikarma
 meyveler <- c("elma", "cilek", "erik", "armut", "karpuz", "kiraz")
 meyveler[4] <- "muz"
 meyveler
@@ -427,3 +428,4 @@ subset(iris, Sepal.Width < 3 | Petal.Length > 4.5)
 as.character(iris$Species) # sadece Species vektorunu (bir sutun aslinda) karaktere cevir.
 iris$new <- iris$Sepal.Length * iris$Petal.Length^2 - 1
 head(iris, 10) # yeni iris veri setinin ilk 10 satirini incele
+
