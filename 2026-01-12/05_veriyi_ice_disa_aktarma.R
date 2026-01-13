@@ -6,14 +6,11 @@
 # Bunlardan birincisi RStudio'nun sundugu bir imkan olan Environment kismindaki 
 # 'Import Dataset' menusudur, digeri ise fonksiyonlar araciligi ile ice aktarma olacaktir.
 
-TR_university <- read.csv(
-  "https://raw.githubusercontent.com/gungorMetehan/TREduData/main/TREduData_university.csv"
-)
+TR_university <- read.csv("https://raw.githubusercontent.com/gungorMetehan/TREduData/main/TREduData_university.csv")
 
-library(readr)
-TR_university <- read_csv(
-  "https://raw.githubusercontent.com/gungorMetehan/TREduData/main/TREduData_university"
-)
+library(readr) # eger calismaz ise paket sizin R'inizda yuklu degil demektir. Bu nedenle oncesinde install.packages("readr") calistirilmalidir.
+
+TR_university <- read_csv("https://raw.githubusercontent.com/gungorMetehan/TREduData/main/TREduData_university")
 
 # Farkli formattaki verilerin ice aktarilmasi
 # read_csv()  - Virgul ile ayrilmis degerlerden olusan CSV dosyalari icindir.
