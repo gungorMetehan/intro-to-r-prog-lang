@@ -9,7 +9,7 @@
   + Paket tanıtımı için site hazırlanabilir - [Örnek](https://pkgdown.r-lib.org/)
   + Web / blog siteleri hazırlanabilir - [Örnek](https://www.garrickadenbuie.com/)
   + Kaliteli ve yüksek çözünürlüklü grafikler hazırlanabilir - [Örnek](https://r-graph-gallery.com/)
-  + Etkileşimli grafikler hazırlanabilir - [Örnek](https://gallery.shinyapps.io/051-movie-explorer/)
+  + Etkileşimli grafikler hazırlanabilir - [Örnek1](https://gallery.shinyapps.io/051-movie-explorer/) | [Örnek2](https://vac-lshtm.shinyapps.io/ncov_tracker/)
   + Etkileşimli uygulamalar / programlar hazırlanabilir - [Örnek1](https://shiny.eptlab.com/tia/) | [Örnek2](https://erguldemir.shinyapps.io/StatisticalTechniqueAdvisor/) | [Örnek3](https://davesteps.shinyapps.io/machLearn/)
 
 * R konusunda daha fazla bilgiye başta çevrim içi kaynaklar olmak üzere birçok kaynaktan yararlanarak ulaşabilirsiniz. Bu nedenle önerebileceğim kaynaklar (derste de bahsedilen) aşağıdakilerdir:
