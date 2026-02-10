@@ -3,7 +3,7 @@
 * R ve R Studio'yu indirmek için [BURAYA](https://posit.co/download/rstudio-desktop/) tıklayabilirsiniz. Sitede gösterildiği üzere önce R'ı sonra R Studio isimli IDE'yi sırasıyla bilgisayarınıza kurabilirsiniz.
 * Derste de bahsedildiği üzere, R'ı çevrim içi olarak da kullanabilirsiniz. Ücretsiz versiyonu genel itibarıyla birçok projeniz için yeterli olacaktır. [BURAYA](https://posit.cloud/) tıklayarak üye olabilir ve R'ı kullanabilirsiniz.
 * Derste bahsedilmişti. R programlama dili ile yapabilecekleriniz saymak ile bitmez. Örnek olarak şunlar yapılabilir:
-  + Hazırlanmış şablonları kullanarak CV hazırlanabilir - [Örnek](https://github.com/loreabad6/R-CV/blob/master/CV.pdf)
+  + Hazırlanmış şablonlar kullanılarak CV hazırlanabilir - [Örnek](https://github.com/loreabad6/R-CV/blob/master/CV.pdf)
   + Kitap yazılabilir - [Örnek](https://openintro-ims.netlify.app/)
   + Slayt hazırlanabilir - [Örnek](https://slides.yihui.org/xaringan/#1)
   + Paket tanıtımı için site hazırlanabilir - [Örnek](https://pkgdown.r-lib.org/)
