@@ -49,7 +49,6 @@ c(12, 91, 6, 19) -> x
 x
 
 assign("x", c(12, 91, 6, 19))
-
 x
 
 # camel-case nesne isimlendirme: veriSeti, standartSapma, toplamPuan
