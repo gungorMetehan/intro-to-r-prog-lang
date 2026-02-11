@@ -156,6 +156,14 @@ kritiklik <- factor(c("Dusuk", "Orta", "Yuksek", "Kritik", "Orta", "Yuksek"),
   levels = c("Dusuk", "Orta", "Yuksek", "Kritik"),
   ordered = TRUE)
 
+##############################
+# EKSTRA: Iki vektorun elemanlarinin kartezyen carpimi ile sirali ikilileri nasil elde edebilirim?
+# asagidaki komutlar sirasi ile calistirilmali - yani expand.grid() fonksiyonu ile bu islem gerceklestirilebilir.
+vektor_a <- c(1, 2) ; vektor_b <- c(2, 3, 4, 5, 6)
+kartezyen_matris <- as.matrix(expand.grid(vektor_a, vektor_b))
+kartezyen_matris
+##############################
+
 ## Matrislerde Islemler
 
 motivasyon_puani <- c(90, 80, 80, 80, 70, 40, 70, 50, 90, 80)
@@ -427,3 +435,4 @@ subset(iris, Sepal.Width < 3 | Petal.Length > 4.5)
 as.character(iris$Species) # sadece Species vektorunu (bir sutun aslinda) karaktere cevir.
 iris$new <- iris$Sepal.Length * iris$Petal.Length^2 - 1
 head(iris, 10) # yeni iris veri setinin ilk 10 satirini incele
+
