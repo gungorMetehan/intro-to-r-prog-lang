@@ -19,9 +19,6 @@ class(ornek1) # Olusan nesnenin turune bakalim.
 ornek2 <- c(2, 5, TRUE, FALSE)
 class(ornek2) # Olusan nesnenin turune bakalim.
 
-ornek3 <- c(2, 5, "Ankara")
-class(ornek3) # Olusan nesnenin turune bakalim.
-
 # vektorun uzunlugunun bulunmasi
 notlar <- c(90, 95, 100, 80, 90, 95)
 length(notlar)
@@ -45,8 +42,14 @@ cinsiyetler
 
 # bir karakter vektoru olusturma ve bunu duzeyleri olan bir faktore donusturme
 beden <- c("M", "M", "S", "S", "L")
+beden <- factor(beden, levels = c("S", "M", "L"), ordered = TRUE)
+beden
+
+# yukaridaki islemin aynisi, ordered() fonksiyonu ile
+beden <- c("M", "M", "S", "S", "L")
 beden <- ordered(beden, levels = c("S", "M", "L"))
 beden
+
 
 ## Matrisler
 
@@ -69,7 +72,7 @@ mm_2
 class(mm_1) ; class(mm_2) # iki farkli matrisin turleri nedir?
 
 # byrow argumanina dikkat ederek matris olusturulabilir. Asagidaki kodlari calistirarak olusan dort farkli matrisi inceleyin.
-matrix(1:20, nrow = 4, ncol = 5, byrow = F)
+matrix(1:20, nrow = 4, ncol = 5, byrow = F) # byrow = T denince verilen 20 sayiyi satirlara gore siralamaz, sutunlara gore siralar.
 matrix(1:20, nrow = 4, ncol = 5, byrow = T)
 matrix(1:20, nrow = 4)
 matrix(1:20, ncol = 5)
@@ -104,19 +107,14 @@ ad <- c("Ad1", "Ad2", "Ad3", "Ad4", "Ad5", "Ad6") # karakter vektoru
 boy <- c(180, 181, 188, 170, 172, 175, 181) # numerik vektor
 kilo <- c(80, 85, 55) # numerik vektor
 
-# uc vektorden olusan bir liste olusturma
-liste <- list(ad, boy, kilo)
-liste
+# listenin olusturulmasi
+liste <- list(ad = ad, boy = boy, kilo = kilo)
 
-# liste'nin yapisinin incelenmesi
+# listeye iki yeni nesne ekleme
+liste$ilk3sayi <- c(1, 2, 3)
+liste$mantik <- c(TRUE, FALSE, TRUE)
+
 str(liste)
-
-# liste isimli listeye iki vektor daha ekleme
-liste2 <- list(liste, ilk3sayi = c(1, 2, 3), mantik = c(T, F, F, F, T))
-liste2
-
-# liste2'nin yapisinin incelenmesi
-str(liste2)
 
 
 ## Data Frame'ler
