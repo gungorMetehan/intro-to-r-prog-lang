@@ -69,4 +69,4 @@ class(ornek_rawdata) # Bu veri nesnesinin sinifi nedir?
 
 ornek_karakter <- rawToChar(ornek_rawdata)
 ornek_karakter
-class(ornek_karakter)# Bu veri nesnesinin sinifi nedir?
+class(ornek_karakter) # Bu veri nesnesinin sinifi nedir?
