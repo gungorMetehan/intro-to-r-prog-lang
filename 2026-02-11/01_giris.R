@@ -13,7 +13,7 @@ M <- 2025
 # Bunun yani sira iki komutun arasina ; sembolu konularak da ayni satirda birden fazla komut calistirilabilir. 
 # Ancak genellikle, daha okunabilir satir komutlari icin komutlar farkli satirlara yazilmaktadir.
 
-abc <- 100 ; def <- 200 # Burada iki ayri nesne olusturulmaktadir, bir nesnenin adi abc, digerininki ise def'dir.
+abc <- 121 ; def <- 144 # Burada iki ayri nesne olusturulmaktadir, bir nesnenin adi abc, digerininki ise def'dir.
 
 # Bir satir komutunu henuz tamamlamadan calistirdiginizda konsolda (console) + isareti belirir. Bu isaret, komutun noksan oldugu anlamina gelir. 
 # Bununla genelde bir fonksiyonun son kapatma parantezinin ')' kullanilmadigi durumlarda karsilasilir.
@@ -49,8 +49,7 @@ c(12, 91, 6, 19) -> x
 x
 
 assign("x", c(12, 91, 6, 19))
-
 x
 
 # camel-case nesne isimlendirme: veriSeti, standartSapma, toplamPuan
-# snake-case nesne isimlendirme: uzunluk_a, calisan_maas, personel_id
+# snake-case nesne isimlendirme: uzunluk_a, calisan_maas, personel_id, yeni_liste
